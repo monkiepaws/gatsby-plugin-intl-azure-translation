@@ -10,6 +10,13 @@
     "gatsby-plugin-intl"
   ],
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/monkiepaws/gatsby-plugin-intl-azure-translation"
+  },
+  "bugs": {
+    "url": "https://github.com/monkiepaws/gatsby-plugin-intl-azure-translation/issues"
+  },
   "dependencies": {
     "axios": "^0.19.0"
   },
