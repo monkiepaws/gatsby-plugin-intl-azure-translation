@@ -14,7 +14,7 @@ function flattenMessages(nestedMessages) {
     const value = nestedMessages[key]
 
     if (typeof value === "string") {
-      messages = messages.concat([{Text: value}])
+      messages = messages.concat([{ Text: value }])
     } else {
       messages = messages.concat(flattenMessages(value))
     }
@@ -27,18 +27,19 @@ function flattenMessages(nestedMessages) {
 function expandMessages(flattenedMessages, original) {
   const messages = [...flattenedMessages]
 
-  const expand = e => Object.keys(e).reduce((ex, key) => {
-    const value = e[key]
+  const expand = e =>
+    Object.keys(e).reduce((ex, key) => {
+      const value = e[key]
 
-    if (typeof value === "string") {
-      const msg = messages.shift()
-      ex[key] = msg;
-    } else {
-      ex[key] = expand(value)
-    }
+      if (typeof value === "string") {
+        const msg = messages.shift()
+        ex[key] = msg
+      } else {
+        ex[key] = expand(value)
+      }
 
-    return ex
-  }, {})
+      return ex
+    }, {})
 
   return expand(original)
 }
@@ -46,13 +47,17 @@ function expandMessages(flattenedMessages, original) {
 // Maps a fetch call to receive translations for each language
 function fetchAllTranslations(messages, options) {
   const toLangs = options.langs.filter(lang => lang !== options.defaultLang)
-  return toLangs.map((lang) => fetchTranslationsForLanguage(messages, lang, options))
+  return toLangs.map(lang =>
+    fetchTranslationsForLanguage(messages, lang, options)
+  )
 }
 
 // Makes the Api call for a give language
 function fetchTranslationsForLanguage(messages, toLang, options) {
   const url = `${options.apiUri}&from=${options.defaultLang}&to=${toLang}`
-  return axios.post(url, messages, {headers: {"Ocp-Apim-Subscription-Key": options.apiKey}})
+  return axios.post(url, messages, {
+    headers: { "Ocp-Apim-Subscription-Key": options.apiKey },
+  })
 }
 
 // Organises the fetched responses into a Map by language
@@ -80,10 +85,10 @@ function expandTranslations(flatMap, original) {
 }
 
 // Writes translations to disk as JSON, saved as {language}.json
-async function writeFiles(expandedMap, {path}) {
+async function writeFiles(expandedMap, { path }) {
   expandedMap.forEach((translations, language) => {
     const json = JSON.stringify(translations, null, 2)
-    fs.writeFile(`${path}/${language}.json`, json, "utf8", (err) => {
+    fs.writeFile(`${path}/${language}.json`, json, "utf8", err => {
       if (err) {
         console.log(`An error occurred while writing ${language} JSON to file`)
         throw err
@@ -94,7 +99,7 @@ async function writeFiles(expandedMap, {path}) {
 }
 
 // Main function
-function translate({original, options}) {
+function translate({ original, options }) {
   const messages = flattenMessages(original)
   const promises = fetchAllTranslations(messages, options)
   return Promise.all(promises)
@@ -117,5 +122,5 @@ module.exports = {
   mapTranslations,
   flattenTranslation,
   expandTranslations,
-  writeFiles
+  writeFiles,
 }

@@ -9,7 +9,7 @@ exports.onPreBootstrap = async function({ cache, reporter }, options) {
   const original = require(originalPath)
   if (!original) {
     reporter.info(`Can't find language JSON at ${originalPath}`)
-    return;
+    return
   }
 
   const shasum = crypto
@@ -24,10 +24,10 @@ exports.onPreBootstrap = async function({ cache, reporter }, options) {
     reporter.info(`New checksum for translations`)
   } else if (current === shasum) {
     reporter.info(`No changes in language JSON ${originalPath}`)
-    return;
+    return
   }
   reporter.info(`Required to fetch new translations for ${originalPath}`)
-  await translation.translate({original, options})
+  await translation.translate({ original, options })
   reporter.info(`Saved translations for ${options.langs.join(",")}`)
 
   await cache.set(cacheKey, current)

@@ -12,33 +12,30 @@ jest.mock("../environment")
 const { apiUri, apiKey } = require("../__mocks__/environment")
 
 const prepared = [
-  { Text: 'Great Title' },
-  { Text: 'Awesome description' },
-  { Text: 'Next' },
-  { Text: 'Previous' },
-  { Text: '404 nothing here!' },
-  { Text: 'Garden state' },
-  { Text: 'Sunshine state' }
+  { Text: "Great Title" },
+  { Text: "Awesome description" },
+  { Text: "Next" },
+  { Text: "Previous" },
+  { Text: "404 nothing here!" },
+  { Text: "Garden state" },
+  { Text: "Sunshine state" },
 ]
 const flattened = [
-  'Great Title',
-  'Awesome description',
-  'Next',
-  'Previous',
-  '404 nothing here!',
-  'Garden state',
-  'Sunshine state'
+  "Great Title",
+  "Awesome description",
+  "Next",
+  "Previous",
+  "404 nothing here!",
+  "Garden state",
+  "Sunshine state",
 ]
-const responses = [
-  { data: ja },
-  { data: fr }
-]
+const responses = [{ data: ja }, { data: fr }]
 
 const options = {
   langs: ["en", "ja", "fr"],
   defaultLang: "en",
   apiUri,
-  apiKey
+  apiKey,
 }
 
 describe("flattenMessages()", () => {
@@ -79,14 +76,16 @@ describe("fetchAllTranslations()", () => {
     const spy = jest.spyOn(axios, "post")
     const url = `${apiUri}&from=en&to=`
     translate.fetchAllTranslations(prepared, options)
-    expect(spy).toHaveBeenNthCalledWith(1, `${url}ja`, prepared, {headers: {"Ocp-Apim-Subscription-Key": apiKey}})
-    expect(spy).toHaveBeenNthCalledWith(2, `${url}fr`, prepared, {headers: {"Ocp-Apim-Subscription-Key": apiKey}})
+    expect(spy).toHaveBeenNthCalledWith(1, `${url}ja`, prepared, {
+      headers: { "Ocp-Apim-Subscription-Key": apiKey },
+    })
+    expect(spy).toHaveBeenNthCalledWith(2, `${url}fr`, prepared, {
+      headers: { "Ocp-Apim-Subscription-Key": apiKey },
+    })
 
     spy.mockRestore()
   })
 })
 describe("writeFiles()", () => {
-  test("should save two json files to disk", () => {
-
-  })
+  test("should save two json files to disk", () => {})
 })
