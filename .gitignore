@@ -1,6 +1,10 @@
 # WebStorm
 .idea
 
+# Babel compiled files
+gatsby-node.js
+index.js
+
 # Logs
 logs
 *.log
