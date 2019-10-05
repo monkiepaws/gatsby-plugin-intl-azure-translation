@@ -1,0 +1,15 @@
+{
+  "site": {
+    "title": "Great Title",
+    "description": "Awesome description",
+    "nav": {
+      "next": "Next",
+      "prev": "Previous"
+    }
+  },
+  "notfound": "404 nothing here!",
+  "state": {
+    "vic": "Garden state",
+    "qld": "Sunshine state"
+  }
+}

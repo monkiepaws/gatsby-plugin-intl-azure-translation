@@ -1,0 +1,58 @@
+[
+  {
+    "translations": [
+      {
+        "text": "Grand Titre",
+        "to": "fr"
+      }
+    ]
+  },
+  {
+    "translations": [
+      {
+        "text": "Description impressionnante",
+        "to": "fr"
+      }
+    ]
+  },
+  {
+    "translations": [
+      {
+        "text": "prochain",
+        "to": "fr"
+      }
+    ]
+  },
+  {
+    "translations": [
+      {
+        "text": "précédent",
+        "to": "fr"
+      }
+    ]
+  },
+  {
+    "translations": [
+      {
+        "text": "404 rien ici!",
+        "to": "fr"
+      }
+    ]
+  },
+  {
+    "translations": [
+      {
+        "text": "État de jardin",
+        "to": "fr"
+      }
+    ]
+  },
+  {
+    "translations": [
+      {
+        "text": "État de soleil",
+        "to": "fr"
+      }
+    ]
+  }
+]
