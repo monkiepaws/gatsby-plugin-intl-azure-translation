@@ -1,12 +1,5 @@
 const axios = require("axios")
 const fs = require("fs")
-// const original = require("../../../src/intl/en")
-// const en = require("./__mocks__/en-mock")
-// const { apiUri, apiKey } = require("./environment")
-// const langs = ["en","ja", "fr"]
-// const defaultLang = "en"
-// const path = "./src/intl"
-// const options = { langs, defaultLang, apiUri, apiKey, path }
 
 // Flattens the original JSON file and prepares for Azure Translation Text Api
 function flattenMessages(nestedMessages) {
