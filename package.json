@@ -2,7 +2,7 @@
   "name": "gatsby-plugin-intl-azure-translation",
   "main": "index.js",
   "description": "Automatically translates JSON using Azure Translation Text. Use with gatsby-plugin-intl",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Richard Sims",
   "keywords": [
     "gatsby",
